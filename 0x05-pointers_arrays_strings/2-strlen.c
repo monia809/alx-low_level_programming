@@ -2,22 +2,19 @@
 
 /**
  * _strlen - returns the length of a string
- *
  * @s: string
- *
- * Return: Lenngth of the string
+ * Return: length
  */
 
-void reset_to_98(int *n)
+int _strlen(char *s)
 {
-	int x;
+	int longi = 0;
 
-	x = 0;
-
-	while (s[x] != '\0')
+	while (*s != '\0')
 	{
-		x++;
+		longi++;
+		s++;
 	}
 
-	return (x);
+	return (longi);
 }
