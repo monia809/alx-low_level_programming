@@ -5,7 +5,6 @@
  *
  * @dest: input string
  * @src: input string
- * @n: input value
  *
  * Return: dest
  */
