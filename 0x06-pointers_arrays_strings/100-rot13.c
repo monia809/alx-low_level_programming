@@ -1,35 +1,37 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  *rot13 - encodes strings using rot13
-
+ *
  *@s: pointer to string
  *
  *Return: pointer to encoded string
  */
 
-char *rot13(char *str)
+char *rot13(char *s)
 {
-	int s, j;
+	int stringCount, rotation;
+	char r1[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z'};
+	char r2[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		     'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		     'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		     'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		     'M'};
 
-	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-
-	s = 0;
-	while (strs[s] != '\0')
+	for (stringCount = 0; s[stringCount] != '\0'; stringCount++)
 	{
-		j = 0;
-		while (alpha[j] != '\0')
+		for (rotation = 0; rotation < 53; rotation++)
 		{
-			if (str[s] == alpha[j])
+			if (r1[rotation] == s[stringCount])
 			{
-				str[s] = rot[j];
+				s[stringCount] = r2[rotation];
 				break;
 			}
-			j++;
 		}
-		s++;
 	}
-	return (str);
+	return (s);
 }
