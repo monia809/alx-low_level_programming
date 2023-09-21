@@ -3,6 +3,7 @@
 /**
  * cap_string - capitalizes all words of a string
  *
+ * @str: The string to be capitalized
  * @n: input string
  *
  * Return: caps on first letter of a separator
