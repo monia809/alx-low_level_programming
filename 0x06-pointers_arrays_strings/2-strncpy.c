@@ -11,18 +11,17 @@
  * Return: Always 0
  */
 
-int _strcmp(char *s1, char *s2)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int m;
+	int x;
 
-	m = 0;
-	while (s1[m] != '\0' && s2[m] != '\0')
+	for (x = 0; x < n && src[x] != '\0' ; x++)
 	{
-		if (s1[m] != s2[m])
-		{
-			return (s1[m] - s2[m]);
-		}
-	m++;
+		dest[x] = src[x];
 	}
-	return (0);
+	for (; x  < n; x++)
+	{
+		dest[x] = '\0';
+	}
+	return (dest);
 }
