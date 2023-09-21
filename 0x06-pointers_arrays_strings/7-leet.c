@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
- * leet - encodes a string into 1337
+/**
+ * leet - encode into 1337speak
  *
  * @n: input value
  *
@@ -10,17 +10,17 @@
 
 char *leet(char *n)
 {
-	int l, x;
+	int x, m;
 	char s1[] = "aAeEoOtTlL";
 	char s2[] = "4433007711";
 
-	for (l = 0; n[l] != '\0'; l++)
+	for (x = 0; n[x] != '\0'; x++)
 	{
-		for (x = 0; x < 10; x++)
+		for (m = 0; m < 10; m++)
 		{
-			if (n[l] == s1[x])
+			if (n[x] == s1[m])
 			{
-				n[l] = s2[x];
+				n[x] = s2[m];
 			}
 		}
 	}
