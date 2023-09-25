@@ -2,28 +2,30 @@
 #include <stdio.h>
 
 /**
- * _strpbrk - function that searches a string for any of a set of bytes
+ * _strstr - Entry point
  *
- *@s: first value
- *@accept: second value
+ * @haystack: input
+ * @needle: input
  *
- * Return: char with result
+ * Return: Always 0
  */
 
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	int h = 0;
-
-	while (*s)
+	for (; *haystack != '\0'; haystack++)
 	{
-		while (accept[h] != '\0')
+		char *l = haystack;
+		char *p = needle;
+
+		while (*l == *p && *p != '\0')
 		{
-			if (*s == accept[h])
-				return (s);
-			h++;
+			l++;
+			p++;
 		}
-		h = 0;
-		s++;
+
+		if (*p == '\0')
+			return (haystack);
 	}
-	return ('\0');
+
+	return (0);
 }
