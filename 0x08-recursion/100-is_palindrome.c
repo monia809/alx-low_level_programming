@@ -1,52 +1,51 @@
 #include "main.h"
 
 /**
-* is_palindrome - m
-*
-*@s: o
-*
-*Return: 0
-*/
+ * _strlen_recursion - do
+ *
+ * @s: pointer
+ *
+ * Return: 1 if a string is a palindrome and 0 if not
+ */
 
-int is_palindrome(char *s)
+int _strlen_recursion(char *s)
 {
-	int index = 0;
-	int len = find_strlen(s);
-
-	if (!(*s))
-		return (1);
-
-	return (check_palindrome(s, len, index));
+	if (!*s)
+	{
+		return (0);
+	}
+	return (1 + _strlen_recursion(++s));
 }
 
 /**
- * find_strlen - n
+ * find_strlen - senorita
  *
- * @s: i
+ * @s: string measured
  *
- * Return: a
+ * Return: len
  */
 
 int find_strlen(char *s)
 {
-	int f = 0;
+	int l = 0;
 
-	if (*(s + f))
+	if (*(s + l))
 	{
-		f++;
-		f += find_strlen(s + f);
+		l++;
+		l += find_strlen(s + l);
 	}
 
-	return (f);
+	return (l);
 }
 
 /**
- * check_palindrome - C
+ * check_palindrome - string is a palindrome
  *
- * @s: f
+ * @s: string
+ *
  * @len: length
  *
- * @index: i
+ * @index: index of the string
  *
  * Return: 1,0
  */
