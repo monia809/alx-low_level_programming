@@ -1,12 +1,13 @@
 #include "main.h"
 
+int actual_sqrt_recursion(int n, int i);
+
 /**
- *_evaluate - oh
+ * _sqrt_recursion - root
  *
- *@i: int
- *@n: int
+ * @n: somthing
  *
- *Return: 0
+ * Return: 0
  */
 
 int _sqrt_recursion(int n)
@@ -19,11 +20,11 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * actual_sqrt_recursion - i
+ * actual_sqrt_recursion - recurses
  *
- * @n: number
+ * @n: number to calculate the sqaure root of
  *
- * @i: sad
+ * @i: somthing
  *
  * Return: 0
  */
