@@ -5,9 +5,8 @@
  *
  * @s: string
  *
- * Return: 1
+ * Return: 0
  *
- * On error, -1 
  */
 
 void _puts_recursion(char *s)
@@ -19,4 +18,4 @@ void _puts_recursion(char *s)
 	}
 	_putchar(*s);
 	_puts_recursion(s + 1);
-}
+
