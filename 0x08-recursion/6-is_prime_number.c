@@ -1,43 +1,33 @@
 #include "main.h"
 
 /**
- *evaluate_num - oh
+ * prime2 - call
  *
- *@num: my god
+ * @a: me
+ * @b: senorita
  *
- *@iterator: wow
+ * Return: 1
+ */
+
+int prime2(int a, int b)
+{
+	if (a == b)
+		return (1);
+	else if (a % b == 0)
+		return (0);
+	return (prime2(a, b + 1));
+}
+/**
+ * is_prime_number - m
  *
- *Return: 1 or 0
+ * @n: Int
+ *
+ * Return: 1
  */
 
 int is_prime_number(int n)
 {
-	int start = n / 2;
-
 	if (n <= 1)
 		return (0);
-	return (is_prime(n, start));
-}
-
-/**
- * actual_prime - m
- *
- * @n: number to evaluate
- *
- * @i: iterator
- *
- * Return: 1,0
- */
-
-int actual_prime(int n, int f)
-{
-	if (f == 1)
-	{
-		return (1);
-	}
-	if (n % f == 0 && f > 0)
-	{
-		return (0);
-	}
-	return (actual_prime(n, f - 1));
+	return (prime2(n, 2));
 }
