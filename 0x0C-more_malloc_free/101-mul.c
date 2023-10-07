@@ -11,9 +11,9 @@ void add_nums(char *final_prod, char *next_prod, int next_len);
 /**
  * find_len - F
  *
- * @str: The
+ * @str: The str
  *
- * Return: The 
+ * Return: Th
  */
 
 int find_len(char *str)
@@ -27,13 +27,13 @@ int find_len(char *str)
 }
 
 /**
- * create_xarray - C
+ * create_xarray - Creates an array of chars and initializes it with
+ *                 the character 'x'. Adds a terminating null byte.
+ * @size: The size of the array to be initialized.
  *
- * @size: 
- *
- * Description: I
- *
- * Return: A
+ * Description: If there is insufficient space, the
+ *              function exits with a status of 98.
+ * Return: A pointer to the array.
  */
 
 char *create_xarray(int size)
@@ -56,11 +56,12 @@ char *create_xarray(int size)
 
 /**
  * iterate_zeroes - Iterates through a string of numbers containing
- *                  leading zeroes until it hits a non-zero number.
+ *
  * @str: The string of numbers to be iterate through.
  *
- * Return: A pointer to the next non-zero element.
+ * Return: A pointer to the nex
  */
+
 char *iterate_zeroes(char *str)
 {
 	while (*str && *str == '0')
@@ -77,6 +78,7 @@ char *iterate_zeroes(char *str)
  *              exits with a status of 98.
  * Return: The converted int.
  */
+
 int get_digit(char c)
 {
 	int digit = c - '0';
@@ -186,11 +188,10 @@ void add_nums(char *final_prod, char *next_prod, int next_len)
  * @argv: The number of arguments passed to the program.
  * @argc: An array of pointers to the arguments.
  *
- * Description: If the nu
- *
- * Return: A
+ * Description: If the number of arguments is incorrect or one number
+ *              contains non-digits, the function exits with a status of 98.
+ * Return: Always 0.
  */
-
 int main(int argc, char *argv[])
 {
 	char *final_prod, *next_prod;
