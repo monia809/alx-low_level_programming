@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * before_main - funcion that prints a specific string before the main,
@@ -6,7 +7,6 @@
  *
  * Return: no return.
  */
-
 
 void before_main(void)
 {
