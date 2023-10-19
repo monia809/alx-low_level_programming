@@ -5,7 +5,8 @@
  * before_main - funcion that prints a specific string before the main,
  * function in executed.
  *
- * Return: no return.
+ * Return: no 
+ *
  */
 
 void before_main(void)
