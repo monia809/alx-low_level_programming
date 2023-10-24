@@ -1,59 +1,44 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
- * delete_nodeint_at_index 
+ * delete_nodeint_at_index - function that deletes the node at index,
+ * index of a listint_t linked list.
+ * @head: pointer to pointer to the head of linked list.
+ * @index:index of the node that should be deleted. Index starts at 0.
  *
- * @head: pointer to the head of
- * @index: index of the node to be added
- *
- * Return: the address of the node
+ * Return:  1 if it succeeded, -1 if it failed.
  */
+
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *old_node = NULL;
-	listint_t *previous_node = NULL;
-	unsigned int i = 0, list_len = listint_len(*head);
-
-	if ((index > list_len) || (list_len == 0))
+	listint_t *temp_variable, *temp_variable2;
+	unsigned int i = 0;
+	/* if there is no list then return NULL */
+	if (head == NULL || *head == NULL)
 		return (-1);
-	while (head != NULL)
+	/* check for index 0 */
+	if (index == 0)
 	{
-		if (i == index)
-		{
-			old_node = *head;
-			if (i == 0)
-			{
-				*head = old_node->next;
-				free(old_node);
-				return (1);
-			}
-			previous_node->next = old_node->next;
-			free(old_node);
-			return (1);
-		}
-		else if ((i + 1) == index)
-			previous_node = *head;
-		head = &((*head)->next);
+		temp_variable = *head;
+		*head = (*head)->next;
+		free(temp_variable);
+		return (1);
+	}
+	/* assign the temporary variable as the first node */
+	temp_variable = *head;
+	/* traverse the list till the index */
+	while (i != index - 1 && temp_variable->next != NULL)
+	{
+		temp_variable = temp_variable->next;
 		i++;
 	}
-	return (-1);
-}
-
-/**
- * listint_len - counts the number of nodes in a linked list
- * @h: head of the list
- *
- * Return: the number of elements
- */
-size_t listint_len(const listint_t *h)
-{
-	const listint_t *cursor = h;
-	size_t count = 0;
-
-	while (cursor != NULL)
+	if (i == index - 1 && temp_variable->next != NULL)
 	{
-		count += 1;
-		cursor = cursor->next;
-	}
-	return (count);
+		temp_variable2 = temp_variable->next;
+		temp_variable->next = temp_variable2->next;
+		free(temp_variable2);
+		return (1);
+	} /* by here the code has failed so we return -1 */
+	return (-1);
 }
