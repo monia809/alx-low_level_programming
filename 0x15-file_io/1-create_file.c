@@ -1,55 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
- * _strlen - com
+ * create_file - fun
  *
- * @str: t
+ * @filename: var
  *
- * Return: the length of str, or -1 if str is NULL
- */
-
-ssize_t _strlen(const char *str)
-{
-	ssize_t len = 0;
-
-	if (!str)
-		return (-1);
-
-	while (*str++)
-		++len;
-
-	return (len);
-}
-
-/**
- * create_file - cr
+ * @text_content: co
  *
- * @filename: t
- *
- * @text_content: the d
- *
- * Return: Upon success, return 1. Otherwise, return -1
+ * Description: Create a function that creates a file.
+ * Return: 1 on success, -1 on failure
  */
 
 int create_file(const char *filename, char *text_content)
 {
-	ssize_t b_written = 0;
-	int fd;
+	int i = 0, file;
 
-	if (!filename)
+	if (filename == NULL)
 		return (-1);
 
-	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	if (text_content == NULL)
+		text_content = "";
 
-	if (fd < 0)
+
+	while (text_content[i] != '\0')
+	{
+		i++;
+	}
+
+	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+
+	if (file == -1)
 		return (-1);
 
-	if (text_content)
-		b_written = write(fd, text_content, _strlen(text_content));
+	write(file, text_content, i);
 
-	close(fd);
-
-	if (b_written < 0)
-		return (-1);
 	return (1);
 }
